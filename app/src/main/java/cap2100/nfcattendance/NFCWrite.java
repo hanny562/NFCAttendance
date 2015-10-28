@@ -11,18 +11,34 @@ import android.nfc.tech.NdefFormatable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class NFCWrite extends AppCompatActivity {
 
-    NfcAdapter nfcAdapter;
+    String stuName, stuID;
+    TextView tvStuNameDisp, tvStuIDDisp;
+
+    /**Bundle extras = getIntent().getExtras();*/
+    /**NfcAdapter nfcAdapter;**/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfcwrite);
 
-        nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        stuName = getIntent().getStringExtra("NAME_MESSAGE");
+        stuID = getIntent().getStringExtra("ID_MESSAGE");
+
+        tvStuNameDisp = (TextView) findViewById(R.id.tvStuNameDisp);
+        tvStuNameDisp.setTextSize(15);
+        tvStuNameDisp.setText("Student Name : " + stuName);
+
+        tvStuIDDisp = (TextView) findViewById(R.id.tvStuIDDisp);
+        tvStuIDDisp.setTextSize(15);
+        tvStuIDDisp.setText("Student ID : " + stuID);
+
+       /** nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         if(nfcAdapter!=null && nfcAdapter.isEnabled())
         {
@@ -31,10 +47,10 @@ public class NFCWrite extends AppCompatActivity {
         else
         {
             Toast.makeText(this, "NFC is not enabled!",Toast.LENGTH_LONG).show();
-        }
+        }**/
     }
 
-    protected void onNewIntent(Intent intent)
+   /** protected void onNewIntent(Intent intent)
     {
         Toast.makeText(this, "NFC Tag Detected!", Toast.LENGTH_LONG).show();
 
@@ -96,7 +112,7 @@ public class NFCWrite extends AppCompatActivity {
     private void writeDataIntoTag(Tag tag)
     {
         Ndef ndefTag = Ndef.get(tag);
-    }
+    }**/
 
 
 }

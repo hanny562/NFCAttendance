@@ -30,22 +30,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Student Name"
+        android:text="Student Name : "
         android:id="@+id/tvStuNameDisp"
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:textSize="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Student ID"
+        android:text="Student ID : "
         android:id="@+id/tvStuIDDisp"
         android:layout_below="@+id/tvStuNameDisp"
-        android:layout_alignRight="@+id/tvStuNameDisp"
-        android:layout_alignEnd="@+id/tvStuNameDisp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textSize="15dp" />
 
 </RelativeLayout>

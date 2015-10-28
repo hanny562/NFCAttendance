@@ -2,12 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cap2100.nfcattendance" >
 
-    <uses-permission
-        android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="22" />
 
     <uses-feature
         android:name="android.hardware.nfc"
-        android:required="false"/>
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -28,7 +31,13 @@
         </activity>
         <activity android:name=".Createtag" >
         </activity>
-        <activity android:name=".NFCWrite" >
+        <activity android:name=".NFCWrite"
+            android:parentActivityName=".Createtag">
+            <meta-data
+                android:name="android.support.Parent_ACTIVITY"
+                android:value=".Createtag"/>
+        </activity>
+        <activity android:name=".selectClass" >
         </activity>
     </application>
 
