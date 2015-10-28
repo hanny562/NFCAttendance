@@ -98,7 +98,7 @@ public class Createtag extends AppCompatActivity{
                 .setPositiveButton("Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface d1, int id) {
-                                write();
+                                writeDataToNFC();
                             }
                         })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -115,7 +115,7 @@ public class Createtag extends AppCompatActivity{
 
     }
 
-    public void write()
+    public void writeDataToNFC()
     {
         String StuText = etStuName.getText().toString();
         String IDText = etStuID.getText().toString();
