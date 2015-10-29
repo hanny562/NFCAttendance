@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">NFC Attendance</string>
+
+    <string-array name="spinnerSession_array">
+        <item>Lecture</item>
+        <item>Tutorial</item>
+    </string-array>
+
 </resources>

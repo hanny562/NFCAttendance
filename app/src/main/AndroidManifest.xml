@@ -2,15 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cap2100.nfcattendance" >
 
-    <uses-permission android:name="android.permission.NFC" />
-
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="18"
         android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.NFC" />
 
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="false" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -31,13 +35,16 @@
         </activity>
         <activity android:name=".Createtag" >
         </activity>
-        <activity android:name=".NFCWrite"
-            android:parentActivityName=".Createtag">
+        <activity
+            android:name=".NFCWrite"
+            android:parentActivityName=".Createtag" >
             <meta-data
                 android:name="android.support.Parent_ACTIVITY"
-                android:value=".Createtag"/>
+                android:value=".Createtag" />
         </activity>
         <activity android:name=".selectClass" >
+        </activity>
+        <activity android:name=".About" >
         </activity>
     </application>
 
