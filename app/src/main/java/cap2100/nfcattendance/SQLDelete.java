@@ -25,10 +25,10 @@ public class SQLDelete extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_sqldelete);
+		/*setContentView(R.layout.activity_sqldelete);
 		et = (EditText) findViewById(R.id.etRowID);
 		delEntry = (Button) findViewById(R.id.btnDeleteEntry);
-		delAll = (Button) findViewById(R.id.btmDeleteAll);
+		delAll = (Button) findViewById(R.id.btmDeleteAll);*/
 		delEntry.setBackgroundColor(Color.parseColor("#936c90"));
 		delAll.setBackgroundColor(Color.parseColor("#ab2727"));
 		delEntry.setEnabled(false);

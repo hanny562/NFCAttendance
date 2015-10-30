@@ -10,8 +10,8 @@ public class SQLView extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_sqlview);
-		textview = (TextView) findViewById(R.id.tvDBInfo);
+		/*setContentView(R.layout.activity_sqlview);
+		textview = (TextView) findViewById(R.id.tvDBInfo);*/
 		try {
 			SQLController dbinfo = new SQLController(this);
 			dbinfo.open();

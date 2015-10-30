@@ -38,12 +38,12 @@ public class selectClass extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        et = (EditText) findViewById(R.id.etSubCode);
+        /*et = (EditText) findViewById(R.id.etSubCode);
         addItemOnSpinner();
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnDelEntry = (Button) findViewById(R.id.btnDelEntry);
         btnExport = (Button) findViewById(R.id.btnExport);
-        btnView = (Button) findViewById(R.id.btnView);
+        btnView = (Button) findViewById(R.id.btnView);*/
 
         btnAdd.setBackgroundColor(Color.parseColor("#c0deff"));
         btnDelEntry.setBackgroundColor(Color.parseColor("#ab2727"));
