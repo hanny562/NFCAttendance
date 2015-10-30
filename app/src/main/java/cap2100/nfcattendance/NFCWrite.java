@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.text.Format;
+import java.text.Normalizer;
 
 public class NFCWrite extends AppCompatActivity {
 
@@ -54,5 +55,75 @@ public class NFCWrite extends AppCompatActivity {
             Toast.makeText(this, "NFC is not enabled!",Toast.LENGTH_LONG).show();
         }
     }
+
+    public void onNewIntent(Intent intent)
+    {
+        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction()))
+        {
+            Tag discoveredTag = (Tag) intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+            try{
+                writeDataToTag(discoveredTag);
+            }catch (IOException e){
+                e.printStackTrace();
+            }catch (FormatException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void writeDataToTag(Tag tag) throws IOException, FormatException {
+
+        Ndef ndefTag = Ndef.get(tag);
+        String nfcMessage = stuID + "," + stuName;
+
+        // Chunk the record of MINE-type data and student name/ID
+        NdefRecord Record = new NdefRecord(NdefRecord.TNF_MIME_MEDIA,
+                new String(".nfcattendance").getBytes(Charset
+                        .forName("US-ASCII")), null, nfcMessage.getBytes());
+
+        // Construct NDEF message with the record
+        NdefMessage message = new NdefMessage(Record);
+
+        try {
+            ndefTag.connect();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //write to nfc tag
+        ndefTag.writeNdefMessage(message);
+        ndefTag.close();
+        Toast.makeText(getApplicationContext(), "Successfully written to tag!",
+                Toast.LENGTH_LONG).show();
+    }
+
+    public void onResume(){
+        enableNfcWrite();
+        super.onResume();
+    }
+
+    public void onPause(){
+        disableNfcWrite();
+        super.onPause();
+    }
+
+    private PendingIntent getPendingIntent() {
+        return PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+    }
+
+    private void enableNfcWrite() {
+        NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
+        IntentFilter tagDetected = new IntentFilter(
+                NfcAdapter.ACTION_TAG_DISCOVERED);
+        IntentFilter[] writeTagFilters = new IntentFilter[] { tagDetected };
+        adapter.enableForegroundDispatch(this, getPendingIntent(),
+                writeTagFilters, null);
+    }
+
+    private void disableNfcWrite() {
+        NfcAdapter adapter = NfcAdapter.getDefaultAdapter(this);
+        adapter.disableForegroundDispatch(this);
+    }
+
 
 }
