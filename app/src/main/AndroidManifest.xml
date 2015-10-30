@@ -3,8 +3,9 @@
     package="cap2100.nfcattendance" >
 
     <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="22" />
+        android:minSdkVersion="8"
+        android:targetSdkVersion="22"
+        android:maxSdkVersion="23"/>
 
     <uses-permission android:name="android.permission.NFC" />
 
