@@ -5,53 +5,52 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="cap2100.nfcattendance.selectClass">
+    tools:context="cap2100.nfcattendance.selectList">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Subject"
-        android:id="@+id/tvSubject"
+        android:id="@+id/tvSub"
         android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ssSubList"
+        android:layout_below="@+id/tvSub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Section"
+        android:id="@+id/tvSec"
+        android:textSize="20dp"
+        android:layout_below="@+id/ssSubList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Section"
-        android:id="@+id/tvSetion"
-        android:layout_below="@+id/tvSubject"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="89dp" />
-
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ssSubject"
-        android:layout_below="@+id/tvSubject"
+        android:id="@+id/ssSecList"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/tvSec"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ssSsection"
-        android:layout_below="@+id/tvSetion"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:id="@+id/btnNext"
-        android:layout_centerVertical="true"
+        android:id="@+id/btnNextList"
+        android:layout_below="@+id/ssSecList"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>

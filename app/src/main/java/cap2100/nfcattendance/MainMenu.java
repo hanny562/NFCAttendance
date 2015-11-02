@@ -30,6 +30,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         switch(v.getId())
         {
             case R.id.btnTakeAtt:
+                startActivity(new Intent(this, selectClass.class));
                 break;
             case R.id.btnStuList:
                 break;
