@@ -24,14 +24,7 @@ import android.widget.Toast;
 
 public class selectClass extends AppCompatActivity implements View.OnClickListener{
 
-    String nfcData;
-    String stringName;
-    String stringID;
-    String exportFileName;
-    Spinner spinner;
-    EditText et;
-    String spinnerData;
-    Button btnAdd, btnDelEntry, btnExport, btnView;
+    Spinner ssSubject,ssSection;
     Button btnNext;
 
 
@@ -41,17 +34,64 @@ public class selectClass extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_class);
 
+        addItemOnSpinner();
+        addItemOnSpinner2();
+
         btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setOnClickListener(this);
+
+        ssSubject = (Spinner) findViewById(R.id.ssSubject);
+        ssSection = (Spinner) findViewById(R.id.ssSection);
+
+        String spinnerSubject = ssSubject.getSelectedItem().toString();
+        String spinnerSection = ssSection.getSelectedItem().toString();
+
+        Intent passSpinner = new Intent(getApplicationContext(), NameList.class);
+        passSpinner.putExtra ("sp_subject", spinnerSubject);
+        passSpinner.putExtra ("sp_section", spinnerSection);
     }
 
     public void onClick(View v) {
         switch(v.getId())
         {
             case (R.id.btnNext):
+
                 startActivity(new Intent(this, ScanTag.class));
                 break;
         }
 
     }
+
+    public void addItemOnSpinner() {
+        ssSubject = (Spinner) findViewById(R.id.ssSubject);
+        // Create an ArrayAdapter using the string array and a default spinner
+        // layout
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.ssSubject_array,
+                android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        ssSubject.setAdapter(adapter);
+    }
+
+    public void addItemOnSpinner2() {
+        ssSection = (Spinner) findViewById(R.id.ssSection);
+        // Create an ArrayAdapter using the string array and a default spinner
+        // layout
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.ssSection_array,
+                android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        ssSection.setAdapter(adapter);
+    }
+
 }

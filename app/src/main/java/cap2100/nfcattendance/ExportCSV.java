@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class ExportCSV {
+
 	SQLController dbHandler;
 
 	Context context;
@@ -37,13 +38,14 @@ public class ExportCSV {
 			csvHeader += "\"" + "Row Id" + "\",";
 			csvHeader += "\"" + "Student Name" + "\",";
 			csvHeader += "\"" + "Student ID" + "\",";
-			csvHeader += "\n";
+			csvHeader += "\"" + "Attendance Taken" + "\n";
 			if (cursor != null) {
 				out.write(csvHeader);
 				while (!cursor.isAfterLast()) {
 					csvValues = cursor.getString(0) + ","; // row id
 					csvValues += cursor.getString(1) + ","; // student ID
-					csvValues += cursor.getString(2) + ",\n"; // name
+					csvValues += cursor.getString(2) + ","; // name
+					csvValues += cursor.getString(3) + ",\n"; // Time
 					out.write(csvValues);
 					cursor.moveToNext();
 				}

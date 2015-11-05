@@ -6,4 +6,14 @@
         <item>Tutorial</item>
     </string-array>
 
+    <string-array name="ssSubject_array">
+        <item>CAP2100</item>
+        <item>ICT2109</item>
+    </string-array>
+
+    <string-array name="ssSection_array">
+        <item>T01</item>
+        <item>T02</item>
+    </string-array>
+
 </resources>

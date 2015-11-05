@@ -33,6 +33,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 startActivity(new Intent(this, selectClass.class));
                 break;
             case R.id.btnStuList:
+                startActivity(new Intent(this, NameList.class));
                 break;
             case R.id.btnCreateTag:
                 startActivity(new Intent(this, Createtag.class));
