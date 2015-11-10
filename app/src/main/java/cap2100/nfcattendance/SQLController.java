@@ -104,9 +104,9 @@ public class SQLController {
         int timeStamp = cursor.getColumnIndex(COLUMN_TIME_STAMP);
 
 		for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-			dbResult = dbResult + cursor.getString(Row) + " "
-					+ cursor.getString(StuID) + " " + cursor.getString(StuName)
-					+ cursor.getString(timeStamp) + "\n";
+			dbResult = dbResult + "\t\t" + cursor.getString(Row) + "\t\t\t\t\t"
+					+ cursor.getString(StuID) + "\t\t\t\t" + cursor.getString(StuName)
+                    + "\t\t\t\t" + cursor.getString(timeStamp) + "\n";
 		}
 		return dbResult;
 	}
