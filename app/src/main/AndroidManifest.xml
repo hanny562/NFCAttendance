@@ -43,16 +43,34 @@
                 android:value=".Createtag" />
         </activity>
         <activity android:name=".selectClass" >
+            <intent-filter>
+                <action android:name=".SELECTCLASS" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+            <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+            <data android:mimeType="application/cap2100.nfcattendance" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name=".About" >
         </activity>
-        <activity android:name=".ScanTag" >
-        </activity>
-        <activity android:name=".selectList" >
-        </activity>
         <activity android:name=".NameList" >
+            android:label="Attendance List">
+            <intent-filter>
+                <action android:name=".NAMELIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
-        <activity android:name=".DeleteData" >
+        <activity android:name=".DeleteData"
+            android:label="Delete Attendance">
+            <intent-filter>
+                <action android:name=".DELETEDATA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

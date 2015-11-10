@@ -35,17 +35,19 @@ public class ExportCSV {
 			FileWriter fileWriter = new FileWriter(outFile);
 			BufferedWriter out = new BufferedWriter(fileWriter);
 			Cursor cursor = dbHandler.getUserInfo();
-			csvHeader += "\"" + "Row Id" + "\",";
-			csvHeader += "\"" + "Student Name" + "\",";
-			csvHeader += "\"" + "Student ID" + "\",";
-			csvHeader += "\"" + "Attendance Taken" + "\n";
+			csvHeader += "\"" + "Row Id" + "\"\t";
+			csvHeader += "\"" + "Student Name" + "\"\t\t\t\t\t";
+			csvHeader += "\"" + "Student ID" + "\"\t\t\t";
+            csvHeader += "\"" + "Attendance Taken" + "\"\t";
+			//csvHeader += "\"" + "Attendance Taken" + "\",";
+			csvHeader += "\n";
 			if (cursor != null) {
 				out.write(csvHeader);
 				while (!cursor.isAfterLast()) {
-					csvValues = cursor.getString(0) + ","; // row id
-					csvValues += cursor.getString(1) + ","; // student ID
-					csvValues += cursor.getString(2) + ","; // name
-					csvValues += cursor.getString(3) + ",\n"; // Time
+					csvValues = "\t" + cursor.getString(0) + "\t\t\t\t\t"; // row id
+					csvValues += cursor.getString(2) + "\t\t\t\t\t\t"; // student ID
+					csvValues += cursor.getString(1) + "\t\t";// name
+					csvValues += cursor.getString(3) + "\n"; // Time
 					out.write(csvValues);
 					cursor.moveToNext();
 				}

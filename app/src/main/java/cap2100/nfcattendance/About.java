@@ -17,7 +17,7 @@ public class About extends AppCompatActivity {
 
         String text = "<html><body>"
                 + "<h4>"
-                + "About Me"
+                + "About Our Team"
                 + "</h4><p align=\"justify\">"
                 + "We are a Team of three of final year students from Inti International College Penang that currently developing a prototype" +
                 "Android Application that illutrate the real scenarios of attendance taking by lecturer in class with more efficient way."
@@ -27,7 +27,7 @@ public class About extends AppCompatActivity {
                 + "- Tiffany Toh Qing Wei <br>"
                 + "- Yew Pui Cheng <br><br>"
                 + "Supervisor <br>"
-                + "Mr. Shahriman <br><br>"
+                + "- Mr. Shahriman <br><br>"
                 + "</p></body></html>";
 
         mWebView.loadData(text, "text/html", "utf-8");

@@ -12,11 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class DeleteData extends Activity {
+public class DeleteData extends Activity implements View.OnClickListener {
     EditText et;
     String stringrow;
     String rId;
     String rName;
+    String rTime;
     Button delEntry;
     Button delAll;
 
@@ -25,18 +26,19 @@ public class DeleteData extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		/*setContentView(R.layout.activity_sqldelete);
+		setContentView(R.layout.activity_delete_data);
 		et = (EditText) findViewById(R.id.etRowID);
 		delEntry = (Button) findViewById(R.id.btnDeleteEntry);
-		delAll = (Button) findViewById(R.id.btmDeleteAll);*/
-        delEntry.setBackgroundColor(Color.parseColor("#936c90"));
-        delAll.setBackgroundColor(Color.parseColor("#ab2727"));
+        delEntry.setOnClickListener(this);
+		delAll = (Button) findViewById(R.id.btnDeleteAll);
+        delAll.setOnClickListener(this);
+
         delEntry.setEnabled(false);
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable arg0) {
                 enable();
-                delEntry.setBackgroundColor(Color.parseColor("#ab2727"));
+                delEntry.setBackgroundColor(Color.parseColor("#c0deff"));
             }
 
             @Override
@@ -60,48 +62,54 @@ public class DeleteData extends Activity {
         }
     }
 
-    public void deleteRow(View v) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Delete entry");
-        alertDialogBuilder
-                .setMessage("Do you want to delete this entry?")
-                .setCancelable(false)
-                .setPositiveButton("Confirm",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface d1, int id) {
-                                delete();
-                            }
-                        })
-                .setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+    @Override
+    public void onClick(View v) {
 
-                            }
-                        });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-    }
+        switch(v.getId())
+        {
+            case (R.id.btnDeleteEntry):
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setTitle("Delete entry");
+                alertDialogBuilder
+                        .setMessage("Do you want to delete this entry?")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirm",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface d1, int id) {
+                                        delete();
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
 
-    public void deleteAllRow(View v) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Remove attendance records");
-        alertDialogBuilder
-                .setMessage("Do you want to remove all the records?")
-                .setCancelable(false)
-                .setPositiveButton("Confirm",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface d1, int id) {
-                                deleteall();
-                            }
-                        })
-                .setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                                    }
+                                });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+                break;
+            case (R.id.btnDeleteAll):
+                AlertDialog.Builder alertDialogBuilder2 = new AlertDialog.Builder(this);
+                alertDialogBuilder2.setTitle("Remove attendance records");
+                alertDialogBuilder2
+                        .setMessage("Do you want to remove all the records?")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirm",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface d1, int id) {
+                                        deleteall();
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
 
-                            }
-                        });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+                                    }
+                                });
+                AlertDialog alertDialog2 = alertDialogBuilder2.create();
+                alertDialog2.show();
+                break;
+        }
     }
 
     public void delete() {
@@ -113,6 +121,7 @@ public class DeleteData extends Activity {
             delentry.open();
             rName = delentry.getName(longrow);
             rId = delentry.getId(longrow);
+            rTime = delentry.getTimeStamp(longrow);
             delentry.deleteEntry(longrow); // delete the record based on column index ID
             delentry.close();
         } catch (Exception e) {
@@ -123,7 +132,7 @@ public class DeleteData extends Activity {
                 Toast.makeText(
                         this,
                         "[Row ID: " + stringrow + "] Student " + rName
-                                + " with " + rId + " has been deleted.",
+                                + " with " + rId + " at " + rTime + " has been deleted.",
                         Toast.LENGTH_LONG).show();
             }
         }
@@ -146,4 +155,6 @@ public class DeleteData extends Activity {
             }
         }
     }
+
+
 }

@@ -19,24 +19,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student List"
-        android:id="@+id/btnStuList"
-        android:layout_below="@+id/btnTakeAtt"
-        android:layout_alignRight="@+id/btnTakeAtt"
-        android:layout_alignEnd="@+id/btnTakeAtt"
-        android:layout_marginTop="30dp"
-        android:layout_alignLeft="@+id/btnTakeAtt"
-        android:layout_alignStart="@+id/btnTakeAtt" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Create Tag"
         android:id="@+id/btnCreateTag"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/btnStuList"
-        android:layout_alignLeft="@+id/btnStuList"
-        android:layout_alignStart="@+id/btnStuList"
-        android:layout_alignRight="@+id/btnStuList"
-        android:layout_alignEnd="@+id/btnStuList" />
+        android:layout_below="@+id/btnTakeAtt"
+        android:layout_alignLeft="@+id/btnTakeAtt"
+        android:layout_alignStart="@+id/btnTakeAtt"
+        android:layout_alignRight="@+id/btnTakeAtt"
+        android:layout_alignEnd="@+id/btnTakeAtt" />
 </RelativeLayout>

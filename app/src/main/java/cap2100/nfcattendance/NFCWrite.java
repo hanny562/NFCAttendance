@@ -78,8 +78,7 @@ public class NFCWrite extends AppCompatActivity {
 
         // Chunk the record of MINE-type data and student name/ID
         NdefRecord Record = new NdefRecord(NdefRecord.TNF_MIME_MEDIA,
-                new String(".nfcattendance").getBytes(Charset
-                        .forName("US-ASCII")), null, nfcMessage.getBytes());
+                new String("application/" + getPackageName()).getBytes(), null, nfcMessage.getBytes());
 
         // Construct NDEF message with the record
         NdefMessage message = new NdefMessage(Record);
@@ -93,7 +92,7 @@ public class NFCWrite extends AppCompatActivity {
         //write to nfc tag
         ndefTag.writeNdefMessage(message);
         ndefTag.close();
-        Toast.makeText(getApplicationContext(), "Successfully written to tag!",
+        Toast.makeText(getApplicationContext(), "Student ID : " + stuID + "\nStudent Name : " + stuName + "\nSuccessfully written!",
                 Toast.LENGTH_LONG).show();
     }
 

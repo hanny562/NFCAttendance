@@ -49,9 +49,46 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/btnNext"
+        android:text="Add New Entry"
+        android:id="@+id/btnNew"
+        android:onClick="addNewEntry"
         android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View List"
+        android:onClick="viewList"
+        android:id="@+id/btnViewList"
+        android:layout_below="@+id/btnNew"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write To Tag"
+        android:onClick="writeTag"
+        android:id="@+id/btnCreateTag"
+        android:layout_below="@+id/btnExport"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Export Database"
+        android:onClick="exportCSV"
+        android:id="@+id/btnExport"
+        android:layout_below="@+id/btnViewList"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About US"
+        android:id="@+id/btnAbout"
+        android:onClick="AboutUs"
+        android:layout_below="@+id/btnCreateTag"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
