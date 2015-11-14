@@ -39,7 +39,6 @@ public class ExportCSV {
 			csvHeader += "\"" + "Student Name" + "\"\t\t\t\t\t";
 			csvHeader += "\"" + "Student ID" + "\"\t\t\t";
             csvHeader += "\"" + "Attendance Taken" + "\"\t";
-			//csvHeader += "\"" + "Attendance Taken" + "\",";
 			csvHeader += "\n";
 			if (cursor != null) {
 				out.write(csvHeader);

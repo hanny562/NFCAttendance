@@ -169,17 +169,4 @@ public class SQLController {
         }
         return null;
     }
-
-    public boolean checkDataExist(selectClass data)
-    {
-        Cursor c = myDatabase.rawQuery("SELECT * FROM " + DB_TABLE + " WHERE " + KEY_NAME + "= '" + data + "'",null);
-
-        if (c.getCount() == 0)
-        {
-            return false;
-        }else{
-            return true;
-        }
-    }
-
 }

@@ -9,14 +9,13 @@
 
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="false" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -31,8 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu" >
-        </activity>
         <activity android:name=".Createtag" >
         </activity>
         <activity
@@ -41,20 +38,6 @@
             <meta-data
                 android:name="android.support.Parent_ACTIVITY"
                 android:value=".Createtag" />
-        </activity>
-        <activity android:name=".selectClass" >
-            <intent-filter>
-                <action android:name=".SELECTCLASS" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-            <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-
-            <data android:mimeType="application/cap2100.nfcattendance" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity android:name=".About" >
         </activity>

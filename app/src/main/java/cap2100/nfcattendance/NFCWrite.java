@@ -25,7 +25,6 @@ public class NFCWrite extends AppCompatActivity {
     String stuName, stuID;
     TextView tvStuNameDisp, tvStuIDDisp;
 
-    /*Bundle extras = getIntent().getExtras();*/
     NfcAdapter nfcAdapter;
 
     @Override
@@ -48,11 +47,11 @@ public class NFCWrite extends AppCompatActivity {
 
         if(nfcAdapter!=null && nfcAdapter.isEnabled())
         {
-            Toast.makeText(this, "NFC is enabled!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "NFC is enabled!", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(this, "NFC is not enabled!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "NFC is not enabled!",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -92,7 +91,9 @@ public class NFCWrite extends AppCompatActivity {
         //write to nfc tag
         ndefTag.writeNdefMessage(message);
         ndefTag.close();
-        Toast.makeText(getApplicationContext(), "Student ID : " + stuID + "\nStudent Name : " + stuName + "\nSuccessfully written!",
+        Toast.makeText(getApplicationContext(), "Student ID : "
+                        + stuID + "\nStudent Name : "
+                        + stuName + "\nSuccessfully written!",
                 Toast.LENGTH_LONG).show();
     }
 
@@ -107,7 +108,8 @@ public class NFCWrite extends AppCompatActivity {
     }
 
     private PendingIntent getPendingIntent() {
-        return PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        return PendingIntent.getActivity(this, 0, new Intent(this,
+                getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
     }
 
     private void enableNfcWrite() {
